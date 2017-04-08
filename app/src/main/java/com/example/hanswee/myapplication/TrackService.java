@@ -37,7 +37,7 @@ public class TrackService extends Service {
     private SQLiteDatabase mDb;
 
     private LocationManager mLocationManager = null;
-    private static final int LOCATION_INTERVAL = 1000 * 60 * 10;    //10 minutes check gps
+    private static final int LOCATION_INTERVAL = 1000;    //10 minutes check gps
     private static final float LOCATION_DISTANCE = 0f;
 
     private class MyLocationListener implements LocationListener
@@ -196,5 +196,7 @@ public class TrackService extends Service {
             }
         }
     }
+
+
 
 }
