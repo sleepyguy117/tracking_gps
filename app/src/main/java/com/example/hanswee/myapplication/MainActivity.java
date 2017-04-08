@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private  static String TAG = MainActivity.class.toString();
 
+    private Button testButton;
     private Button startService;
     private Button stopService;
     private Button resultsButton;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        testButton = (Button) findViewById(R.id.test_button);
         startService = (Button) findViewById(R.id.start_service);
         stopService = (Button) findViewById(R.id.stop_service);
 
@@ -60,6 +62,15 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new MyDbHelper(this);
 
         mDb = dbHelper.getWritableDatabase();
+
+
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendBroadcast(new Intent("com.example.hanswee.restartservice"));
+            }
+        });
+
 
         startService.setOnClickListener(new View.OnClickListener() {
             @Override
